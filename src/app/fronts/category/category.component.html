@@ -1,0 +1,67 @@
+<main>
+  <div class="archive-header pt-50 text-center pb-50">
+    <div class="container">
+      <h2 class="font-weight-900">{{catTitle}}</h2>
+      <div class="breadcrumb">
+        <a rel="nofollow" href="/">Home</a> > {{catTitle}}
+      </div>
+    </div>
+  </div>
+  <section *ngIf="showLoading" style="margin-bottom: 35px;">
+    <mat-spinner style="margin:0 auto"></mat-spinner>
+  </section>
+  <div class="container" *ngIf="showLoading == false && postsByCat.length > 0 ">
+    <div class="mb-30"
+      style="display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: masonry;column-gap: 10px;">
+
+      <article class="pb-50 fadeIn animated" style="padding: 15px 15px;" *ngFor="let p of postsByCat">
+        <div class="post-card-1 border-radius-10 hover-up">
+          <div class="post-thumb thumb-overlay img-hover-slide position-relative"
+            [ngStyle]="{'background-image': 'url(http://localhost:20245/Images/'+ p.imageName +')'}">
+            <a class="img-link" href="/post/{{p.slug}}"></a>
+            <ul class="social-share">
+              <li><a href="index.html#">
+                  <fa-icon [icon]="share"></fa-icon>
+                </a></li>
+              <li><a class="fb" title="Share on Facebook" target="_blank" href="index.html#">
+                  <fa-icon [icon]="facebook"></fa-icon>
+                </a></li>
+              <li><a class="tw" target="_blank" title="Tweet now" href="index.html#">
+                  <fa-icon [icon]="twitter"></fa-icon>
+                </a></li>
+              <li><a class="pt" target="_blank" title="Pin it" href="index.html#">
+                  <fa-icon [icon]="pin"></fa-icon>
+                </a></li>
+            </ul>
+          </div>
+          <div class="post-content p-30">
+            <div class="entry-meta meta-0 font-small mb-10">
+              <a href="/category/{{p.category.categoryName}}" class="has-dot"><span
+                  class="post-cat text-info">{{p.category.categoryName}}</span></a>
+              By: <a href="/author/{{p.reporter.name}}"><span class="post-cat text-success">{{p.reporter.name}}</span></a>
+            </div>
+            <div class="d-flex post-card-content">
+              <h5 class="post-title mb-10 font-weight-900">
+                <a href="/post/{{p.slug}}">{{p.title}}</a>
+              </h5>
+              <div class="post-excerpt font-small text-muted">
+                <p style="font-size: 12px;color: #687385;"> {{p.body.substring(0,140)}} </p>
+              </div>
+              <div class="entry-meta meta-1 float-left font-x-small text-uppercase">
+                <span class="post-on">{{p.createdAt | date}}</span><span
+                  class="time-reading has-dot">{{NumCeil(p.body.length / 200)}} mins read</span><span
+                  class="post-by has-dot">{{p.views}} view<span *ngIf="p.views > 1">s</span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+  <div *ngIf="showLoading == false && postsByCat.length < 1" class="container"
+    style="margin-bottom: 15px; background: #ff760026; color: #ff7600; font-weight: 500; font-size: 25px; padding: 20px 10px; border-radius: 10px; display: flex; align-items: center;">
+    <mat-icon style="width: 20px; height: 20px; margin-right: 12px;">warning</mat-icon> No post found in
+    &nbsp;<b>{{catTitle}}</b>!
+  </div>
+</main>

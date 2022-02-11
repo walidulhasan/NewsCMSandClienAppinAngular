@@ -1,0 +1,68 @@
+<h2 class="section-title wow fadeInUp mt-1" style="visibility: visible; animation-name: fadeInUp;color: #454360;font-family: Rubik, sans-serif;
+    font-weight: 700; font-size: 52px;text-align: center;">Really Simple Syndication!!</h2>
+
+<div class="mb-5 mx-4 ">
+  <div class="justify-content-end">
+    <div class="dropdown">
+      <div class="btn-group mr-2 mb-2">
+          <a href="dashboard/poll"  type="button" class="btn btn-primary"><span class="fas fa-cog"></span> Create Poll</a>
+          <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <span class="fas fa-angle-down dropdown-arrow"></span>
+              <span class="sr-only">Toggle Dropdown</span>
+          </button>
+          <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(91px, 44px, 0px);">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Separated link</a>
+          </div>
+      </div>
+      <div class="btn-group mb-2 mr-2">
+        <div class="input-group mb-4 mt-3 ml-3"  >
+          <input style="height: 30px;" class="form-control"  placeholder="Filter" autocomplete="off" aria-label="Input group" type="text">
+          <div class="input-group-append">
+              <span class="input-group-text"><span class="fas fa-search"></span></span>
+          </div>
+        </div>
+    </div>
+
+  </div>
+  </div>
+  <div class="table-responsive-sm shadow-soft rounded">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th class="border-0" scope="col">ID</th>
+          <th class="border-0" scope="col">Perma-Link</th>
+          <th class="border-0" scope="col">Limit</th>
+          <th class="border-0" scope="col">CategoryId</th>
+          <th class="border-0" scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td headers="firstyear2"></td>
+          <td headers="firstyear2"></td>
+          <td headers="firstyear2 "></td>
+          <td headers="firstyear2 "></td>
+          <td headers="firstyear2 ">
+            <button class="btn btn-icon-only btn-pill btn-primary" aria-label="dribbble social link"
+              data-toggle="tooltip" data-placement="top" title="" data-original-title="Follow us on Dribbble">
+              <i class="fas fa-pen-square fa-lg" style="color:green"></i>
+            </button>
+            &nbsp;
+            <button class="btn btn-icon-only btn-pill btn-primary" aria-label="dribbble social link"
+              data-toggle="tooltip" data-placement="top" title="" data-original-title="Follow us on Dribbble">
+              <i class="fas fa-trash" style="color:red"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <mat-card style="background-color: rgba(38, 40, 51, 0.05); color: black;">
+      <mat-paginator style="background-color:rgba(38, 40, 51, 0.05); color: black;" [pageSizeOptions]="[3, 5, 10, 50]"
+        [pageSize]="3" showFirstLastButtons></mat-paginator>
+    </mat-card>
+  </div>
+</div>

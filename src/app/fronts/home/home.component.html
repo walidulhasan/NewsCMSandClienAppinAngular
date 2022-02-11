@@ -1,0 +1,248 @@
+<main>
+  <div class="featured-slider-2">
+    <div class="featured-slider-2-items" style="overflow:hidden">
+      <div class="slick-slider slick-initialized" dir="ltr">
+
+        <div class="slick-list">
+          <div class="slick-track" style="width:900%">
+            <div data-index="0" class="slick-slide slick-active slick-current" tabindex="-1" aria-hidden="false"
+              style="outline:none;width:11.11111111111111%">
+              <div>
+                <div class="slider-single" tabindex="-1" style="width:100%;display:inline-block">
+
+                  <div class="post-thumb position-relative">
+                    <div class="thumb-overlay position-relative"
+                      style="background-image:url(../../../assets/assets/images/banner-bg.jpg);background-size: cover;">
+
+                      <!-- <div class="post-content-overlay" *ngFor="let b of listBlogs">
+                        <div class="container">
+                          <div class="entry-meta meta-0 font-small mb-20"><a href="/category/{{b.category.categoryName}}" tabindex="0"><span
+                                class="post-cat text-info text-uppercase bold">{{b.category.categoryName}}</span></a>
+                          </div>
+                          <h1 class="post-title mb-20 font-weight-900 text-white"><a class="text-white"
+                              href="/post/{{b.slug}}" tabindex="0">{{b.title}}</a></h1>
+                          <div class="entry-meta meta-1 font-small text-white mt-10 pr-5 pl-5">
+                            <span class="post-on">{{b.createdAt | date}}</span>
+                            <a style="color:#fff" href="/author/{{b.reporter.name}}">
+                              <span class="hit-count has-dot"><strong>{{b.reporter.name}}</strong></span>
+                            </a>
+                          </div>
+                        </div>
+                      </div> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="hot-tags pt-30 pb-30 font-small align-self-center">
+      <div class="widget-header-3">
+        <div class="row align-self-center">
+          <div class="col-md-4 align-self-center">
+            <h5 class="widget-title">Latest Posts</h5>
+          </div>
+          <div class="col-md-8 text-md-right font-small align-self-center">
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="loop-grid mb-30">
+      <div class="row">
+        <div class="col-lg-8 mb-30">
+          <div>
+            <div
+              class="carausel-post-1 hover-up border-radius-10 overflow-hidden transition-normal position-relative wow fadeInUp animated">
+              <div class="arrow-cover"></div>
+              <div class="slick-slider slide-fade slick-initialized" dir="ltr">
+
+                <div class="slick-list">
+                  <div class="slick-track" style="width:500%">
+
+                    <div data-index="0" class="slick-slide slick-active slick-current" tabindex="-1"
+                      aria-hidden="false" style="outline:none;width:20%">
+                      <div>
+                        <div class="position-relative post-thumb" tabindex="-1"
+                          style="width:100%;display:inline-block" *ngFor="let b of listBlogs">
+                          <div class="thumb-overlay img-hover-slide position-relative" [ngStyle]="{'background-image': 'url(http://localhost:20245/Images/'+ b.imageName +')'}">
+                            <a class="img-link" href="/post/{{b.slug}}"></a>
+                            <div class="post-content-overlay text-white ml-30 mr-30 pb-30">
+                              <div class="entry-meta meta-0 font-small mb-20">
+                                <a href="category">
+                                  <span class="post-cat text-info text-uppercase">{{b.tags}}</span>
+                                </a>
+                              </div>
+                              <h3 class="post-title font-weight-900 mb-20"><a class="text-white"
+                                  href="/post/{{b.slug}}">{{b.title}}</a></h3>
+                              <div class="entry-meta meta-1 font-small text-white mt-10 pr-5 pl-5"><span
+                                  class="post-on">{{b.createdAt | date}}</span>
+                                  <a style="color: #fff;" href="/author/{{b.reporter.name}}"><span class="hit-count has-dot">{{b.reporter.name}}</span></a></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <article class="col-lg-4 col-md-6 mb-30 wow fadeInUp animated" data-wow-delay="0.2s" *ngFor="let b of listBlogs">
+          <div class="post-card-1 border-radius-10 hover-up">
+            <div class="post-thumb thumb-overlay img-hover-slide position-relative"
+            [ngStyle]="{'background-image': 'url(http://localhost:20245/Images/'+ b.imageName +')'}"><a class="img-link" href="/post/{{b.slug}}"></a>
+              <ul class="social-share">
+                <li><a href="index.html#"><fa-icon [icon]="share"></fa-icon></a></li>
+                <li><a class="fb" title="Share on Facebook" target="_blank" href="index.html#">
+                  <fa-icon [icon]="facebook"></fa-icon>
+                </a></li>
+                <li><a class="tw" target="_blank" title="Tweet now" href="index.html#">
+                  <fa-icon [icon]="twitter"></fa-icon>
+                </a></li>
+                <li><a class="pt" target="_blank" title="Pin it" href="index.html#">
+                  <fa-icon [icon]="pin"></fa-icon>
+                </a></li>
+              </ul>
+            </div>
+            <div class="post-content p-30">
+              <div class="entry-meta meta-0 font-small mb-10"><a href="/category/{{b.category.categoryName}}">On: <span
+                    class="post-cat text-info">{{b.category.categoryName}}</span></a> By: <a href="/author/{{b.reporter.name}}"><span class="post-cat text-success">{{b.reporter.name}}</span></a></div>
+              <div class="d-flex post-card-content">
+                <h5 class="post-title mb-10 font-weight-900"><a href="/post/{{b.slug}}">{{b.title}}</a></h5>
+                <div class="post-excerpt font-small text-muted" [innerHTML]="b.body">
+                </div>
+                <div class="entry-meta meta-1 float-left font-x-small text-uppercase"><span class="post-on">{{b.createdAt | date}}</span>
+                  <span class="time-reading has-dot">{{NumCeil(b.body.length / 200)}} mins read</span><span class="post-by has-dot">{{b.views}} view<span *ngIf="b.views > 1">s</span></span></div>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article class="col-lg-4 col-md-6 mb-30 wow fadeInUp animated" *ngFor="let b of listBlogs">
+          <div class="post-card-1 border-radius-10 hover-up">
+            <div class="post-thumb thumb-overlay img-hover-slide position-relative"
+            [ngStyle]="{'background-image': 'url(http://localhost:20245/Images/'+ b.imageName +')'}"><a class="img-link" href="/post/{{b.slug}}"></a>
+              <ul class="social-share">
+                <li><a href="index.html#"><fa-icon [icon]="share"></fa-icon></a></li>
+                <li><a class="fb" title="Share on Facebook" target="_blank" href="index.html#">
+                  <fa-icon [icon]="facebook"></fa-icon>
+                </a></li>
+                <li><a class="tw" target="_blank" title="Tweet now" href="index.html#">
+                  <fa-icon [icon]="twitter"></fa-icon>
+                </a></li>
+                <li><a class="pt" target="_blank" title="Pin it" href="index.html#">
+                  <fa-icon [icon]="pin"></fa-icon>
+                </a></li>
+              </ul>
+            </div>
+            <div class="post-content p-30">
+              <div class="entry-meta meta-0 font-small mb-10"><a href="/category/{{b.category.categoryName}}">On: <span
+                    class="post-cat text-warning">{{b.category.categoryName}}</span></a>
+                    By: <a href="/author/{{b.reporter.name}}"><span class="post-cat text-success">{{b.reporter.name}}</span></a></div>
+              <div class="d-flex post-card-content">
+                <h5 class="post-title mb-10 font-weight-900"><a href="/post/{{b.slug}}">{{b.title}}</a></h5>
+                <div class="post-excerpt font-small text-muted" [innerHTML]="b.body">
+                </div>
+                <div class="entry-meta meta-1 float-left font-x-small text-uppercase"><span class="post-on">{{b.createdAt | date}}</span><span class="time-reading has-dot">{{NumCeil(b.body.length / 200)}} mins read</span>
+                  <span class="post-by has-dot">{{b.views}} view<span *ngIf="b.views > 1">s</span></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+
+      </div>
+    </div>
+  </div>
+  <div class="bg-grey pt-50 pb-50">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8">
+
+          <div class="post-module-3">
+            <div class="widget-header-1 position-relative mb-30">
+              <h5 class="mt-5 mb-30">Popular posts</h5>
+            </div>
+            <div class="loop-list loop-list-style-1">
+
+              <article class="hover-up-2 transition-normal wow fadeInUp animated" *ngFor="let pp of listPopularBlogs">
+                <div class="row mb-40 list-style-2">
+                  <div class="col-md-4">
+                    <div class="post-thumb position-relative border-radius-5">
+                      <div class="img-hover-slide border-radius-5 position-relative"
+                      [ngStyle]="{'background-image': 'url(http://localhost:20245/Images/'+ pp.newsImage +')'}">
+                        <a class="img-link" href="/post/{{pp.slug}}"></a></div>
+                      <ul class="social-share">
+                        <li><a href="index.html#"><fa-icon [icon]="share"></fa-icon></a></li>
+                        <li><a class="fb" title="Share on Facebook" target="_blank" href="index.html#">
+                          <fa-icon [icon]="facebook"></fa-icon>
+                        </a></li>
+                        <li><a class="tw" target="_blank" title="Tweet now" href="index.html#">
+                          <fa-icon [icon]="twitter"></fa-icon>
+                        </a></li>
+                        <li><a class="pt" target="_blank" title="Pin it" href="index.html#">
+                          <fa-icon [icon]="pin"></fa-icon>
+                        </a></li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="col-md-8 align-self-center">
+                    <div class="post-content">
+                      <div class="entry-meta meta-0 font-small mb-10"><a href="category/{{pp.category.categoryName}}"><span
+                            class="post-cat text-primary">{{pp.category.categoryName}}</span></a></div>
+                      <h5 class="post-title font-weight-900 mb-5"><a href="/post/{{pp.slug}}">{{pp.title}}</a></h5>
+                      <div class="post-excerpt font-small text-muted" [innerHTML]="pp.body">
+                      </div>
+                      <div class="entry-meta meta-1 float-left font-x-small text-uppercase"><span class="post-on">
+                        {{pp.createdAt | date}}
+                      </span><span class="time-reading has-dot">{{NumCeil(pp.body.length / 200)}} mins read</span><span
+                          class="post-by has-dot">{{pp.views}} view<span *ngIf="pp.views > 1">s</span></span></div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="widget-area">
+            <div class="sidebar-widget widget-latest-posts mb-50 wow fadeInUp animated">
+              <div class="widget-header-1 position-relative mb-30">
+                <h5 class="mt-5 mb-30">Latest Comments</h5>
+              </div>
+              <div class="post-block-list post-module-2">
+                <ul class="list-post">
+
+                  <li class="mb-30 wow fadeInUp animated" *ngFor="let c of comments">
+                    <div class="d-flex bg-white has-border p-15 hover-up transition-normal border-radius-5">
+                      <div
+                        class="post-thumb post-thumb-64 d-flex mr-15 border-radius-5 img-hover-scale overflow-hidden">
+                        <a class="color-white" href="/post/{{c.news.slug}}">
+                          <img src="{{getCommenterPic(c.email)}}" alt="" />
+                        </a>
+                      </div>
+
+                      <div class="post-content media-body">
+                        <p class="mb-10"><a href="/post/{{c.news.slug}}"><strong>{{c.reporter}}</strong></a><br>
+                          <span class="font-small text-muted">{{c.cDate | date}}</span></p>
+                        <p class="text-muted font-small">{{c.comment}}...</p>
+                      </div>
+                    </div>
+                  </li>
+
+                </ul>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

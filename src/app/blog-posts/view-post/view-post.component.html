@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+    <title>DevBlog - Bootstrap 5 Blog Template For Developers</title>
+    
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Blog Template">
+    <meta name="author" content="Xiaoying Riley at 3rd Wave Media">    
+    <link rel="shortcut icon" href="favicon.ico"> 
+    
+    <!-- FontAwesome JS-->
+	<script defer src="assets/fontawesome/js/all.min.js"></script>
+    
+    <!-- Plugin CSS -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/styles/monokai-sublime.min.css">
+    
+
+</head> 
+
+<body>
+    
+    <header class="header text-center">	    
+	    <h1 class="blog-name pt-lg-4 mb-0"><a class="no-text-decoration" href="index.html">Mahmud's Blog</a></h1>
+        
+	    <nav class="navbar navbar-expand-lg navbar-dark" >
+           
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div id="navigation" class="collapse navbar-collapse flex-column" >
+				<div class="profile-section pt-3 pt-lg-0">
+				    <img class="profile-image mb-3 rounded-circle mx-auto" src="../../../assets/assets/images/profile.jpg" alt="image" >			
+					
+					<div class="bio mb-3">Hi, my name is Mahmud Sabuj. I am full stack web developer. I have 5 years work experience. <br><a href="about.html">Find out more about me</a></div><!--//bio-->
+					
+			        <hr> 
+				</div><!--//profile-section-->
+				
+				<ul class="navbar-nav flex-column text-start">
+					<li class="nav-item">
+					    <a class="nav-link" href="/front"><i class="fas fa-home fa-fw me-2"></i>Blog Home</a>
+					</li>
+					<li class="nav-item">
+					    <a class="nav-link active" href="#"><i class="fas fa-bookmark fa-fw me-2"></i>View Post</a>
+					</li>
+					<li class="nav-item">
+					    <a class="nav-link" href="/front/about"><i class="fas fa-user fa-fw me-2"></i>About Me</a>
+					</li>
+				</ul>
+				
+				<div class="my-2 my-md-3">
+					
+				    <a class="btn btn-primary" href="#" target="_blank">Get in Touch</a>
+				    
+				</div>
+			</div>
+		</nav>
+    </header>
+    
+    <div class="main-wrapper">
+	    
+	    <article class="blog-post px-3 py-5 p-md-5">
+		    <div class="container single-col-max-width">
+			    <header class="blog-post-header">
+				    <h2 class="title mb-2">{{blogDetails.title}}</h2>
+                    <div class="meta mb-3"><span class="date"><span style="font-weight: 500;">Published at:</span> {{blogDetails.createdAt | date}}</span><span><span style="font-weight: 500;">Author: </span> {{blogDetails.author.name}}</span><span><span style="font-weight: 500;">Category: </span> {{blogDetails.category.title}}</span></div>
+			    </header>
+			    
+			    <div class="blog-post-body">
+				    <figure class="blog-banner">
+				        <img class="img-fluid" src="http://localhost:6643/{{blogDetails.imageName}}" alt="{{blogDetails.imageName}}">
+				    </figure>
+				    <p>{{blogDetails.body}}</p>
+			    </div>
+                <mat-card class="example-card">
+                    <mat-card-header>
+                      <div mat-card-avatar class="example-header-image" style="background-image: url('https://c8.alamy.com/comp/2B01G6G/neutral-emoji-face-flat-style-icon-design-cartoon-expression-cute-emoticon-character-profile-facial-toy-adorable-and-social-media-theme-vector-illustration-2B01G6G.jpg');"></div>
+                      <mat-card-title>{{blogDetails.author.name}}</mat-card-title>
+                      <mat-card-subtitle>Blog Author</mat-card-subtitle>
+                    </mat-card-header>
+                    <mat-card-content>
+                      <p>
+                        {{blogDetails.author.about}}
+                      </p>
+                    </mat-card-content>
+                  </mat-card>
+		    </div><!--//container-->
+	    </article>
+	    
+	    <footer class="footer text-center py-2 theme-bg-dark">
+		   
+            <small class="copyright">Designed by <i class="fas fa-heart" style="color: #fb866a;">Mahmud Sabuj</i> Full-Stack Web Developer</small>
+		   
+	    </footer>
+    
+    </div><!--//main-wrapper-->
+    
+
+        
+       
+    <!-- Javascript -->          
+    <script src="assets/plugins/popper.min.js"></script> 
+    <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script> 
+    
+    <!-- Page Specific JS -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/highlight.min.js"></script>
+
+    <!-- Custom JS -->
+    <script src="assets/js/blog.js"></script> 
+    
+
+</body>
+</html> 
+
+

@@ -1,0 +1,88 @@
+<!-- <form class="form-signin" #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+  <div class="container-fluid">
+    <h2 class="form-signin-heading">Login</h2>
+    <div *ngIf="invalidLogin" class="alert alert-danger">Invalid email or password.</div>
+    <br/>
+    <label for="email" class="sr-only">Email address</label>
+    <input type="email" id="email" name="email" ngModel class="form-control" placeholder="User Name" required autofocus>
+    <br/>
+    <label for="password" class="sr-only">Password</label>
+    <input type="password" id="password" name="password" ngModel class="form-control" placeholder="Password" required>
+    <br/>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+  </div>
+</form> -->
+
+
+<section class="min-vh-100 d-flex bg-primary align-items-center">
+  <div class="container">
+      <div class="row justify-content-center">
+          <div class="col-12 col-md-8 col-lg-6 justify-content-center">
+              <div class="card bg-primary shadow-soft border-light p-4">
+                  <div class="card-header text-center pb-0">
+                      <h2 class="h4">Sign in to our platform</h2>
+                  </div>
+                  <div class="card-body">
+                      <form action="#" class="mt-4" #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+                        <div class="alert alert-danger" *ngIf="invalidLogin">Invalid email or password.</div>
+                          <!-- Form -->
+                          <div class="form-group">
+                              <label for="exampleInputIcon3">Your email</label>
+                              <div class="input-group mb-4">
+                                  <div class="input-group-prepend">
+                                      <span class="input-group-text"><span class="fas fa-envelope"></span></span>
+                                  </div>
+                                  <input class="form-control"  matInput placeholder="example@company.com"  aria-label="email adress"  type="email" id="email" name="email" ngModel required>
+                              </div>
+                          </div>
+                          <!-- End of Form -->
+                          <div class="form-group">
+                              <!-- Form -->
+                              <div class="form-group">
+                                  <label for="exampleInputPassword6">Password</label>
+                                  <div class="input-group mb-4">
+                                      <div class="input-group-prepend">
+                                          <span class="input-group-text"><span class="fas fa-unlock-alt"></span></span>
+                                      </div>
+                                      <input class="form-control" matInput placeholder="Password" type="password" id="password" name="password" ngModel required aria-label="Password">
+                                  </div>
+                              </div>
+                              <!-- End of Form -->
+                              <div class="d-block d-sm-flex justify-content-between align-items-center mb-4">
+                                  <div class="form-check">
+                                      <input class="form-check-input" type="checkbox" value="" id="defaultCheck5">
+                                      <label class="form-check-label" for="defaultCheck5">
+                                        Remember me
+                                      </label>
+                                  </div>
+                                  <div><a href="#" class="small text-right">Lost password?</a></div>
+                              </div>
+                          </div>
+                          <button type="submit" class="btn btn-block btn-primary">Sign in</button>
+                      </form>
+                      <div class="mt-3 mb-4 text-center">
+                          <span class="font-weight-normal">or login with</span>
+                      </div>
+                      <div class="btn-wrapper my-4 text-center">
+                          <button class="btn btn-primary btn-icon-only text-facebook mr-2" type="button" aria-label="facebook button" title="facebook button">
+                              <span aria-hidden="true" class="fab fa-facebook-f"></span>
+                          </button>
+                          <button class="btn btn-primary btn-icon-only text-twitter mr-2" type="button" aria-label="twitter button" title="twitter button">
+                              <span aria-hidden="true" class="fab fa-twitter"></span>
+                          </button>
+                          <button class="btn btn-primary btn-icon-only text-facebook" type="button" aria-label="github button" title="github button">
+                              <span aria-hidden="true" class="fab fa-github"></span>
+                          </button>
+                      </div>
+                      <div class="d-block d-sm-flex justify-content-center align-items-center mt-4">
+                          <span class="font-weight-normal">
+                              Not registered?
+                              <a href="#" class="font-weight-bold">Create account</a>
+                          </span>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>

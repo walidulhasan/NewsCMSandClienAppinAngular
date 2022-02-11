@@ -1,0 +1,167 @@
+<div class="col-12 mt-3">
+  <div class="card bg-primary shadow-soft border-light ">
+    <div class="card-body px-5  text-center text-md-left">
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <div class="icon icon-shape icon-lg bg-soft shadow-soft border border-light rounded-circle mb-3">
+            <span class="fas fa-box-open"></span>
+          </div>
+          <h3>
+            Welcome back, <span style="color:darkblue;font-weight: bolder;">{{authorDetails?.name}}</span>
+          </h3>
+          <p class="mb-0">
+            Your Email : <span style="color:fuchsia">{{authorDetails?.email}}</span>
+          </p>
+
+        </div>
+
+        <div class="col-12 col-md-6 mt-4 mt-md-0 text-md-right">
+          <a href="#" class="btn btn-primary mr-md-3" style="background-color: red;color:white">
+            <span class="mr-1">
+              <i class="fas fa-envelope  fa-lg"></i>
+            </span>
+            Message
+          </a>
+          <a [routerLink]="['/dashboard/setting']" class="btn btn-primary" style="background-color:darkblue; color:white">
+            <span class="mr-1">
+              <i class="fas fa-cog fa-lg" style="color:white"></i>
+            </span>
+            Setting
+          </a>
+
+        </div>
+        <button type="button" class="btn btn-primary btn-block rounded-bottom mt-2">Your IP Address: <span
+            style="font-size: large;">{{this.ipAddress}}</span></button>
+        </div>
+    </div>
+  </div>
+
+  <div class="row my-3">
+    <div class="col-12 col-md-6 col-lg-4 mb-5" style="max-width: 300px;">
+      <div class="card bg-primary border-light shadow-soft">
+        <div class="card-header p-3">
+          <img src="../../../assets/assets/images/BDnews.svg" class="card-img-top rounded" alt="Designer desk">
+        </div>
+        <div class="card-body pt-2">
+          <div class="media d-flex align-items-center justify-content-between">
+            <div class="post-group">
+              <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="23k followers">
+                <img class="avatar-sm mr-2 img-fluid rounded-circle" src="../../../assets/assets/images/BDnews.svg"
+                  alt="Jo portrait"> Jo J. Moore
+              </a>
+            </div>
+            <div class="d-flex align-items-center">
+              <span class="small"><span class="far fa-calendar-alt mr-2"></span>{{this.myDate | date: 'shortDate' }}</span>
+            </div>
+          </div>
+          <h3 class="h5 card-title mt-4">We partnered up with Google</h3>
+          <p class="card-text"></p>
+          <a href="#" class="btn btn-primary btn-sm">Learn More</a>
+          <a href="#" class="btn btn-primary btn-sm" style="float: right;">Learn More</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-4 mb-5" style="max-width: 300px;">
+      <div class="card bg-primary border-light shadow-soft">
+        <div class="card-header p-3">
+          <img src="../../../assets/assets/images/BDnews.svg" class="card-img-top rounded" alt="Designer desk">
+        </div>
+        <div class="card-body pt-2">
+          <div class="media d-flex align-items-center justify-content-between">
+            <div class="post-group">
+              <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="23k followers">
+                <img class="avatar-sm mr-2 img-fluid rounded-circle" src="../../../assets/assets/images/BDnews.svg"
+                  alt="Jo portrait"> Jo J. Moore
+              </a>
+            </div>
+            <div class="d-flex align-items-center">
+              <span class="small"><span class="far fa-calendar-alt mr-2"></span>{{this.myDate | date: 'shortDate' }}</span>
+            </div>
+          </div>
+          <h3 class="h5 card-title mt-4">We partnered up with Google</h3>
+          <p class="card-text"></p>
+          <a href="#" class="btn btn-primary btn-sm">Learn More</a>
+          <a href="#" class="btn btn-primary btn-sm" style="float: right;">Learn More</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-4 mb-5" style="max-width: 300px;">
+      <div class="card bg-primary border-light shadow-soft">
+        <div class="card-header p-3">
+          <img src="../../../assets/assets/images/BDnews.svg" class="card-img-top rounded" alt="Designer desk">
+        </div>
+        <div class="card-body pt-2">
+          <div class="media d-flex align-items-center justify-content-between">
+            <div class="post-group">
+              <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="23k followers">
+                <img class="avatar-sm mr-2 img-fluid rounded-circle" src="../../../assets/assets/images/BDnews.svg"
+                  alt="Jo portrait"> Jo J. Moore
+              </a>
+            </div>
+            <div class="d-flex align-items-center">
+              <span class="small"><span class="far fa-calendar-alt mr-2"></span>{{this.myDate | date: 'shortDate' }}</span>
+            </div>
+          </div>
+          <h3 class="h5 card-title mt-4">We partnered up with Google</h3>
+          <p class="card-text"></p>
+          <a href="#" class="btn btn-primary btn-sm">Learn More</a>
+          <a href="#" class="btn btn-primary btn-sm" style="float: right;">Learn More</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-4 mb-5" style="max-width: 300px;">
+      <div class="card bg-primary border-light shadow-soft">
+        <div class="card-header p-3">
+          <img src="../../../assets/assets/images/BDnews.svg" class="card-img-top rounded" alt="Designer desk">
+        </div>
+        <div class="card-body pt-2">
+          <div class="media d-flex align-items-center justify-content-between">
+            <div class="post-group">
+              <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="23k followers">
+                <img class="avatar-sm mr-2 img-fluid rounded-circle" src="../../../assets/assets/images/BDnews.svg"
+                  alt="Jo portrait"> Jo J. Moore
+              </a>
+            </div>
+            <div class="d-flex align-items-center">
+              <span class="small"><span class="far fa-calendar-alt mr-2"></span>{{this.myDate | date: 'shortDate' }}</span>
+            </div>
+          </div>
+          <h3 class="h5 card-title mt-4">We partnered up with Google</h3>
+          <p class="card-text"></p>
+          <a href="#" class="btn btn-primary btn-sm">Learn More</a>
+          <a href="#" class="btn btn-primary btn-sm" style="float: right;">Learn More</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+  <div class="card bg-primary shadow-soft border-light px-4 py-5 text-center mb-5">
+    <div class="card-header pb-0">
+      <h2 class="h1 mb-3" style="color: darkblue;">Ready to change your life?</h2>
+    </div>
+    <div class="card-body pt-2 px-0 px-lg-7">
+      <p class="mb-5 lead">
+        Download FUSE News Mobile Application with get to easy and more...
+      </p>
+      <a class="btn btn-lg btn-primary mr-md-3 mb-3 mb-sm-0" href="#" target="_blank">
+        <div class="d-flex align-items-center">
+          <span class="icon icon-lg mr-3"><span class="fab fa-apple"></span></span>
+          <div class="d-block text-left">
+            <small class="font-small">Download on the</small>
+            <div class="h5 mb-0">App Store</div>
+          </div>
+        </div>
+      </a>
+      <a class="btn btn-lg btn-primary" href="#" target="_blank">
+        <div class="d-flex align-items-center">
+          <span class="icon icon-lg mr-3"><span class="fab fa-google-play"></span></span>
+          <div class="d-block text-left">
+            <small class="font-small">Download on the</small>
+            <div class="h5 mb-0">Google Play</div>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>

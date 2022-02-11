@@ -1,0 +1,19 @@
+mat-icon{
+    margin-right: 5px;
+    font-size: 20px;
+}
+.mat-expansion-panel-spacing{
+    margin: 0;
+}
+.menuListLinks{
+    text-decoration: none;
+    color:black;
+}
+.menuListLink{
+  text-decoration: none;
+}
+.opacity-12 {
+  opacity: 1.12 !important;
+}
+
+

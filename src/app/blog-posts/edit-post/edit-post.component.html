@@ -1,0 +1,112 @@
+<section class="w-97" *ngIf="DataLoaded">
+    
+    <form [formGroup]="editPostForm" (submit)="EditPost()" novalidate enctype="multipart/form-data">
+        <mat-card class="example-card w-70 mt-10 fl">
+            <mat-card-header>
+                <mat-card-title class="uppercase">Edit post</mat-card-title>
+            </mat-card-header>
+        <p>
+            <mat-form-field appearance="outline" class="w-97">
+              <mat-label>Title</mat-label>
+              <input matInput placeholder="Enter post title" formControlName="Title" required >
+              
+              <mat-error
+                *ngIf="!editPostForm.controls.Title?.valid && (editPostForm.controls.Title?.dirty
+                ||editPostForm.controls.Title?.touched)">
+                First Name is not valid
+            </mat-error>
+            </mat-form-field>
+        </p>
+        <input style="display: none;" matInput placeholder="Enter post id" formControlName="PostsId" required >
+        <input style="display: none;" matInput placeholder="ext image name" formControlName="ExtImageName">
+        <p>
+            <mat-form-field appearance="outline" class="w-97">
+              <mat-label>Body</mat-label>
+              <textarea rows="10" matInput placeholder="Ex. It makes me feel..." formControlName="Body"></textarea>
+              <mat-error
+                *ngIf="!editPostForm.controls.Body?.valid && (editPostForm.controls.Body?.dirty
+                ||editPostForm.controls.Body?.touched)">
+                Post must have more than 50 chars
+            </mat-error>
+            </mat-form-field>
+        </p>
+        <div style="margin-bottom: 50px;overflow: hidden;">
+            <div class="w-50 fl">
+                <h4>Category</h4>
+                    <mat-form-field appearance="outline">
+                      <mat-label>Choose an option</mat-label>
+                      <mat-select formControlName="CategoryId">
+                        <mat-option *ngFor="let c of listCategories" [value]="c.categoryId">{{c.title}}</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                    
+                    <mat-error
+                        *ngIf="!editPostForm.controls.CategoryId?.valid && (editPostForm.controls.CategoryId?.dirty
+                        ||editPostForm.controls.CategoryId?.touched)">
+                        Please select Category
+                    </mat-error>
+            </div>
+            <div class="w-50 fl">
+                <h4>Author</h4>
+                    <mat-form-field appearance="outline">
+                      <mat-label>Choose an option</mat-label>
+                      <mat-select formControlName="AuthorId">
+                        <mat-option *ngFor="let a of listAuthors" [value]="a.authorId" >{{a.name}}</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                    
+                    <mat-error
+                        *ngIf="!editPostForm.controls.AuthorId?.valid && (editPostForm.controls.AuthorId?.dirty
+                        ||editPostForm.controls.AuthorId?.touched)">
+                        Please select Author
+                    </mat-error>
+            </div>
+        </div>
+            <button type="submit" mat-raised-button color="primary" [disabled]="!editPostForm.valid"><mat-icon>save</mat-icon> &nbsp; Update</button>
+    </mat-card>
+    <mat-card class="example-card w-23 mt-10 fr">
+        <mat-card-header>
+            <mat-card-title class="uppercase">Featured Image</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <div>
+                <input type="file" (change)="fileChanged($event)" formControlName="ImageName" >
+                <div class="imgPreview">
+                    <img class="img" src="http://localhost:6643/{{blogDetails.imageName}}" alt="{{blogDetails.imageName}}">
+                </div>
+            </div>
+            <p style="display: none;">
+                <input matInput placeholder="update" formControlName="UpdatedAt" required >
+            </p>
+            
+        </mat-card-content>
+    </mat-card>
+    <mat-card class="example-card w-23 mt-10 fr">
+        <mat-card-header>
+            <mat-card-title class="uppercase">Availability</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <p>
+                <mat-slide-toggle formControlName="Availability"> Published</mat-slide-toggle>
+            </p>
+        </mat-card-content>
+    </mat-card>
+    <mat-card class="example-card w-23 mt-10 fr">
+        <mat-card-header>
+            <mat-card-title class="uppercase">Published Date</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <p>
+                  <mat-form-field appearance="outline">
+                    <mat-label>Choose a date</mat-label>
+                    <input matInput [matDatepicker]="picker" formControlName="CreatedAt" required>
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                  </mat-form-field>
+            </p>
+        </mat-card-content>
+    </mat-card>
+    
+    </form>
+    
+</section>

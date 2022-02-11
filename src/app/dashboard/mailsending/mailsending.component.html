@@ -1,0 +1,102 @@
+<section id="contact">
+
+  <div class="container">
+
+    <!-- section title -->
+    <h2 class="section-title wow fadeInUp mt-3" style="visibility: visible; animation-name: fadeInUp;color: #454360;font-family: Rubik, sans-serif;
+    font-weight: 700; font-size: 78px;">Let's talk about everything!</h2>
+
+    <div class="spacer" data-height="60" style="height: 60px;"></div>
+
+    <div class="row">
+
+      <div class="col-md-4 mt-3">
+        <!-- contact info -->
+        <div class="contact-info" style="padding-left: inherit;">
+          <h3 class="wow fadeInUp" style="visibility: visible; animation-name: fadeInUp; color: #454360;
+          font-family: Rubik, sans-serif;
+          font-weight: 700; font-size: x-large;">For Official Use!!</h3>
+          <p class="wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;color: #454360;
+          font-family: Rubik, sans-serif;
+          font-weight: 700;">Don't like forms? Send me an <a href="mailto:name@example.com">email</a>. 👋</p>
+        </div>
+        <!-- <div class="form-group">
+          <label class="my-1 mr-2" >
+            <h2 class="section-title wow fadeInUp mt-3" style="visibility: visible; animation-name: fadeInUp;color: #454360;font-family: Rubik, sans-serif;
+            font-weight: 700;color:darkblue">Staffs</h2>
+          </label>
+          <select class="custom-select my-1 mr-sm-2">
+            <option *ngFor="let c of listStaff" [value]="c.email">{{c.name}}</option>
+          </select>
+        </div> -->
+
+        <mat-label class="my-1 mr-2"><h2 class="section-title wow fadeInUp mt-3" style="visibility: visible; animation-name: fadeInUp;color: #454360;font-family: Rubik, sans-serif;
+          font-weight: 700;color:darkblue">Staffs</h2></mat-label>
+        <mat-form-field appearance="outline" class="form-group">
+          <mat-label>Choose an option</mat-label>
+          <mat-select class="my-1 mr-sm-2">
+            <mat-option *ngFor="let c of listStaff" [value]="c.email">{{c.name}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+
+
+
+      <div class="col-md-8">
+        <!-- Contact Form -->
+        <form id="contact-form" class="contact-form mt-6" method="post" action="#" novalidate="true">
+
+          <div class="messages"></div>
+
+          <div class="row">
+            <div class="column col-md-6">
+              <!-- Name input -->
+              <div class="form-group">
+                <input type="text" class="form-control" name="InputName" id="InputName" placeholder="Your name"
+                  required="required" data-error="Name is required.">
+                <div class="help-block with-errors"></div>
+              </div>
+            </div>
+
+            <div class="column col-md-6">
+              <!-- Email input -->
+              <div class="form-group">
+                <input  type="text" class="form-control" id="InputEmail" name="InputEmail" placeholder="Email address"
+                  required="required" data-error="Email is required.">
+                <div class="help-block with-errors"></div>
+              </div>
+            </div>
+
+            <div class="column col-md-12">
+              <!-- Email input -->
+              <div class="form-group">
+                <input type="text" class="form-control" id="InputSubject" name="InputSubject" placeholder="Subject"
+                  required="required" data-error="Subject is required.">
+                <div class="help-block with-errors"></div>
+              </div>
+            </div>
+
+            <div class="column col-md-12">
+              <!-- Message textarea -->
+              <div class="form-group">
+                <textarea name="InputMessage" id="InputMessage" class="form-control" rows="5" placeholder="Message"
+                  required="required" data-error="Message is required."></textarea>
+                <div class="help-block with-errors"></div>
+              </div>
+            </div>
+          </div>
+
+          <button type="submit" name="submit" id="submit" value="Submit" class="btn btn-primary animate-down-2">Send
+            Message <i class="fas fa-share"></i></button>
+          <!-- Send Button -->
+
+        </form>
+        <!-- Contact Form end -->
+      </div>
+
+    </div>
+
+  </div>
+
+</section>

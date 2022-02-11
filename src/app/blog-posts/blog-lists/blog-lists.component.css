@@ -1,0 +1,46 @@
+.w-97{
+  width: 97%;
+  margin: 0 auto;
+}
+.uppercase{
+    text-transform: uppercase;
+}
+.mt-10{
+  margin-top: 10px;
+}
+.fr{
+  float: right;
+}
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+td, th {
+  width: 13%;
+}
+
+/*button style*/
+.mat-fab{
+  width: 30px;
+  height: 30px;
+  margin: 5px;
+}
+
+mat-icon:not(.add) {
+  margin-top: -22px;
+  font-size: 20px;
+}
+.img{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-top: 7px;
+}  
+thead > tr > th:nth-child(4) {
+  width: 20%;
+} 

@@ -1,0 +1,206 @@
+
+<mat-list role="list">
+  <mat-list-item role="listitem">
+    <mat-icon mat-list-icon>dashboard</mat-icon>
+    <a class="menuListLinks" href="dashboard">Dashboard</a>
+  </mat-list-item>
+</mat-list>
+<mat-accordion>
+  <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <mat-icon mat-list-icon>library_books</mat-icon>
+        News
+      </mat-panel-title>
+
+    </mat-expansion-panel-header>
+    <mat-list role="list">
+      <mat-list-item role="listitem">
+        <mat-icon mat-list-icon>assignment</mat-icon>
+        <a class="menuListLink"  [routerLink]="['dashboard/cats']">News Category</a>
+      </mat-list-item>
+      <mat-list-item role="listitem">
+        <mat-icon mat-list-icon>book</mat-icon>
+        <a class="menuListLink" [routerLink]="['dashboard/subcategory']">News Sub Category</a>
+      </mat-list-item>
+      <mat-list-item role="listitem">
+        <mat-icon mat-list-icon>card_membership</mat-icon>
+        <a class="menuListLink" [routerLink]="['dashboard/newsSpeciality']">News Speciality</a>
+      </mat-list-item>
+      <mat-list-item role="listitem">
+        <mat-icon mat-list-icon>check_circle_outline</mat-icon>
+        <a class="menuListLink" [routerLink]="['dashboard/blog/create']" >Add Post {{role}}</a>
+      </mat-list-item>
+      <mat-list-item role="listitem">
+        <mat-icon mat-list-icon>check_circle</mat-icon>
+        <a class="menuListLink" [routerLink]="['dashboard/blog/list']">All News</a>
+      </mat-list-item>
+
+    </mat-list>
+  </mat-expansion-panel>
+  <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <mat-icon mat-list-icon>perm_media</mat-icon>
+        Media
+      </mat-panel-title>
+
+    </mat-expansion-panel-header>
+    <mat-list role="list">
+      <mat-list-item role="listitem">
+        <mat-icon mat-list-icon>insert_photo</mat-icon>
+        <a class="menuListLink" [routerLink]="['dashboard/cats']" >Photo Gallery</a>
+      </mat-list-item>
+      <mat-list-item role="listitem">
+        <mat-icon mat-list-icon>missed_video_call</mat-icon>
+        <a class="menuListLink" [routerLink]="['dashboard/blog/list']">Video Gallery</a>
+      </mat-list-item>
+    </mat-list>
+  </mat-expansion-panel>
+  <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <mat-icon mat-list-icon>category</mat-icon>
+        Poll
+      </mat-panel-title>
+
+    </mat-expansion-panel-header>
+    <mat-list role="list">
+      <mat-list-item role="listitem">
+        <mat-icon mat-list-icon>insert_photo</mat-icon>
+        <a class="menuListLink" [routerLink]="['dashboard/poll']" >Poll Create</a>
+      </mat-list-item>
+      <mat-list-item role="listitem">
+        <mat-icon mat-list-icon>missed_video_call</mat-icon>
+        <a class="menuListLink" [routerLink]="['dashboard/pollList']">Poll List</a>
+      </mat-list-item>
+    </mat-list>
+  </mat-expansion-panel>
+  <mat-expansion-panel (opened)="panelOpenState=true" (closed)="panelOpenState=false" *ngIf="role=='Admin' || role=='Editor'">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <mat-icon mat-list-icon>chrome_reader_mode</mat-icon>
+        Report
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <mat-list role="list">
+      <mat-list-item role="listitem">
+        <mat-icon mat-list-icon>print</mat-icon>
+        <a class="menuListLink" [routerLink]="['dashboard/reporting']" >Report</a>
+      </mat-list-item>
+    </mat-list>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel (opened)="panelOpenState=true" (closed)="panelOpenState=false" *ngIf="role=='Admin'">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <mat-icon mat-list-icon>supervised_user_circle</mat-icon>
+        Staffs Panel
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <mat-list role="list" >
+      <mat-list-item role="listitem">
+        <mat-icon mat-list-icon>person_pin_circle</mat-icon>
+        <a class="menuListLink" [routerLink]="['dashboard/Staff']">All Staffs</a>
+      </mat-list-item>
+    </mat-list>
+    <mat-list role="list" >
+      <mat-list-item role="listitem">
+        <mat-icon mat-list-icon>view_week</mat-icon>
+        <a class="menuListLink" [routerLink]="['dashboard/place']">Place</a>
+      </mat-list-item>
+    </mat-list>
+    <mat-list role="list" >
+      <mat-list-item role="listitem">
+        <mat-icon mat-list-icon>pages</mat-icon>
+        <a class="menuListLink" [routerLink]="['dashboard/country']">Country</a>
+      </mat-list-item>
+    </mat-list>
+    <mat-list role="list" >
+      <mat-list-item role="listitem">
+        <mat-icon mat-list-icon>school</mat-icon>
+        <a class="menuListLink" [routerLink]="['dashboard/designation']">Designation</a>
+      </mat-list-item>
+    </mat-list>
+    <mat-list role="list" >
+      <mat-list-item role="listitem">
+        <mat-icon mat-list-icon>view_week</mat-icon>
+        <a class="menuListLink" [routerLink]="['dashboard/gender']">Gender</a>
+      </mat-list-item>
+    </mat-list>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel (opened)="panelOpenState=true" (closed)="panelOpenState=false" *ngIf="role=='Admin'">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <mat-icon mat-list-icon>supervised_user_circle</mat-icon>
+        Manage User
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <mat-list role="list" >
+      <mat-list-item role="listitem">
+        <mat-icon mat-list-icon>contacts</mat-icon>
+        <a class="menuListLink" [routerLink]="['dashboard/manageuser']">All Staffs</a>
+      </mat-list-item>
+    </mat-list>
+    <mat-list role="list" >
+      <mat-list-item role="listitem">
+        <mat-icon mat-list-icon>view_week</mat-icon>
+        <a class="menuListLink" [routerLink]="['dashboard/comm']">Commnet</a>
+      </mat-list-item>
+    </mat-list>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false" *ngIf="role == 'Admin'">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <mat-icon mat-list-icon>perm_data_setting</mat-icon> Accessories
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <mat-list role="list">
+      <mat-list-item role="listitem">
+        <mat-icon mat-list-icon>desktop_mac</mat-icon>
+        <a class="menuListLink" [routerLink]="['dashboard/computer']">Computers</a>
+      </mat-list-item>
+    </mat-list>
+    <mat-list role="list">
+      <mat-list-item role="listitem">
+        <mat-icon mat-list-icon>desktop_mac</mat-icon>
+        <a class="menuListLink" [routerLink]="['dashboard/setting']">Settings</a>
+      </mat-list-item>
+    </mat-list>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false" *ngIf="role == 'Admin' || role=='Editor'">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <mat-icon mat-list-icon>mail_outline</mat-icon> Messaging
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <mat-list role="list">
+      <mat-list-item role="listitem">
+        <mat-icon mat-list-icon>message</mat-icon>
+        <a class="menuListLink" [routerLink]="['dashboard/mailsending']">Mail Sending</a>
+      </mat-list-item>
+    </mat-list>
+  </mat-expansion-panel>
+</mat-accordion>
+
+<mat-list class="mat-expansion-panel" *ngIf="role == 'Admin' || role=='Editor'">
+  <mat-list-item role="listitem">
+    <mat-icon style="margin-left: 3px; font-size: 21px;" mat-list-icon>rss_feed</mat-icon>
+    <a class="menuListLinks" [routerLink]="['dashboard/rss']">RSS</a>
+  </mat-list-item>
+</mat-list>
+
+
+<mat-list class="mat-expansion-panel" *ngIf="role == 'Admin'">
+  <mat-list-item role="listitem">
+    <mat-icon style="margin-left: 3px; font-size: 21px;" mat-list-icon>domain</mat-icon>
+    <a class="menuListLinks" [routerLink]="['dashboard/adminprofile']">Manage Admin Profile</a>
+  </mat-list-item>
+</mat-list>
+<div style="background-color: lightgray;height: 111px; position: revert;">
+  <img style="width: 247px; padding-right: 10px; padding-top: 16px;" src="assets/assets/images/logo-text-on-dark.svg" class="max-w-36">
+</div>
+

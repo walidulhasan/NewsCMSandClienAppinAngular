@@ -1,0 +1,42 @@
+<div class="mb-5 mx-4 ">
+  <div class="input-group mb-4 mt-3 ml-3" style="width: 98%;" >
+    <input style="height: 30px;" class="form-control" (keyup)="applyFilter($event)" matInput placeholder="Filter" autocomplete="off" aria-label="Input group" type="text">
+    <div class="input-group-append">
+        <span class="input-group-text"><span class="fas fa-search"></span></span>
+    </div>
+  </div>
+  <div class="table-responsive-sm shadow-soft rounded">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th class="border-0" scope="col">ID</th>
+          <th class="border-0" scope="col">Perma-Link</th>
+          <th class="border-0" scope="col">Limit</th>
+          <th class="border-0" scope="col">CategoryId</th>
+          <th class="border-0" scope="col">CategococryId</th>
+          <th class="border-0" scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let rss of Categories">
+          <td headers="firstyear2">{{rss.commentsId}}</td>
+          <td headers="firstyear2">{{rss.author}}</td>
+          <td headers="firstyear2 ">{{rss.commentContent}}</td>
+          <td headers="firstyear2 ">{{rss.email}}</td>
+          <td headers="firstyear2 ">{{rss.commentDate}}</td>
+          <td headers="firstyear2 ">
+            <button (click)="DeletePost(rss.commentsId)" class="btn btn-icon-only btn-pill btn-primary"
+              aria-label="dribbble social link" data-toggle="tooltip" data-placement="top" title=""
+              data-original-title="Follow us on Dribbble">
+              <i class="fas fa-trash" style="color:red"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <mat-card style="background-color: rgba(38, 40, 51, 0.05); color: black;">
+      <mat-paginator style="background-color:rgba(38, 40, 51, 0.05); color: black;" [pageSizeOptions]="[3, 5, 10, 50]"
+        [pageSize]="3" showFirstLastButtons></mat-paginator>
+    </mat-card>
+  </div>
+</div>

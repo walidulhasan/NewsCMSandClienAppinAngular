@@ -1,0 +1,114 @@
+<h2 class="section-title wow fadeInUp mt-1" style="visibility: visible; animation-name: fadeInUp;color: #454360;font-family: Rubik, sans-serif;
+    font-weight: 700; font-size: 52px;text-align: center;">Really Simple Syndication!!</h2>
+<section *ngIf="authorDetails?.role == 'Admin'">
+  <form [formGroup]="addCatForm" (submit)="createCat()" novalidate enctype="multipart/form-data">
+    <div class="container">
+      <div class="row mb-4 mb-lg-5">
+        <div class="col-lg-4 col-sm-6">
+          <!-- Form -->
+          <div class="form-group mb-4">
+            <label for="exampleInputEmail67">Perma-Link</label>
+            <input formControlName="permalink" style="font-weight:500;" type="text" class="form-control"
+              placeholder="eg:https://example.com/feed/" aria-describedby="emailHelp">
+            <span style="color:red" *ngIf="!addCatForm.controls.permalink?.valid && (addCatForm.controls.permalink?.dirty
+              ||addCatForm.controls.permalink?.touched)">
+              Please fillup Peram-Link
+            </span>
+          </div>
+          <!-- End of Form -->
+        </div>
+        <div class="col-lg-4 col-sm-6">
+          <!-- Form -->
+          <div class="form-group">
+
+            <label class="my-1 mr-2" for="inlineFormCustomSelectPref">CategoryId</label>
+            <select formControlName="categoryId" style="font-weight: 500;" class="custom-select my-1 mr-sm-2">
+              <option *ngFor="let c of listCategories" [value]="c.categoryId">{{c.categoryName}}</option>
+            </select>
+            <span style="color:red" *ngIf="!addCatForm.controls.categoryId?.valid && (addCatForm.controls.categoryId?.dirty
+                        ||addCatForm.controls.categoryId?.touched)">
+              Please select Category Name
+            </span>
+            <!-- Form -->
+            <div class="form-group mb-4" *ngIf="showId" aria-disabled="true" disabled style="cursor: not-allowed;">
+              <label for="exampleInputEmail67">Rss ID</label>
+              <input type="text" class="form-control" style="font-weight: 500;" placeholder="Rss ID"
+                style="cursor: not-allowed;" matInput formControlName="rssId" readonly aria-describedby="emailHelp">
+
+            </div>
+            <!-- End of Form -->
+          </div>
+          <!-- End of Form -->
+        </div>
+        <div class="col-lg-4 col-sm-6">
+          <!-- Form -->
+          <div class="form-group mb-4">
+            <label for="exampleInputEmail67">Limit</label>
+            <input formControlName="limit" type="number" class="form-control" style="font-weight: 500;"
+              placeholder="Time count Houres" aria-describedby="emailHelp">
+            <span style="color:red" *ngIf="!addCatForm.controls.limit?.valid && (addCatForm.controls.limit?.dirty
+              ||addCatForm.controls.limit?.touched)">
+              Please fillup Limit
+            </span>
+          </div>
+          <!-- End of Form -->
+        </div>
+        <button type="submit" class="btn btn-block btn-primary" [disabled]="!addCatForm.valid"><span
+            *ngIf="showId">Update</span><span *ngIf="showId == false">Publish</span>
+          <mat-spinner color="#fff" *ngIf="saving" [diameter]="25"></mat-spinner>
+        </button>
+        <button class="btn btn-block btn-primary" style="background-color: red; color:white" type="button"
+          (click)="clearForm()" *ngIf="showClearBtn">
+          <mat-icon style="margin-top: 0;">clear_all</mat-icon> &nbsp; Clear
+        </button>
+      </div>
+    </div>
+  </form>
+</section>
+
+<div class="mb-5 mx-4 ">
+  <div class="input-group mb-4 mt-3 ml-3" style="width: 98%;" >
+    <input style="height: 30px;" class="form-control" (keyup)="applyFilter($event)" matInput placeholder="Filter" autocomplete="off" aria-label="Input group" type="text">
+    <div class="input-group-append">
+        <span class="input-group-text"><span class="fas fa-search"></span></span>
+    </div>
+  </div>
+  <div class="table-responsive-sm shadow-soft rounded">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th class="border-0" scope="col">ID</th>
+          <th class="border-0" scope="col">Perma-Link</th>
+          <th class="border-0" scope="col">Limit</th>
+          <th class="border-0" scope="col">CategoryId</th>
+          <th class="border-0" scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let rss of Categories">
+          <td headers="firstyear2">{{rss.rssId}}</td>
+          <td headers="firstyear2">{{rss.permalink}}</td>
+          <td headers="firstyear2 ">{{rss.limit}}</td>
+          <td headers="firstyear2 ">{{rss.categoryId}}</td>
+          <td headers="firstyear2 ">
+            <button (click)="editCat(rss.rssId)" class="btn btn-icon-only btn-pill btn-primary"
+              aria-label="dribbble social link" data-toggle="tooltip" data-placement="top" title=""
+              data-original-title="Follow us on Dribbble">
+              <i class="fas fa-pen-square fa-lg" style="color:green"></i>
+            </button>
+            &nbsp;
+            <button (click)="DeletePost(rss.rssId)" class="btn btn-icon-only btn-pill btn-primary"
+              aria-label="dribbble social link" data-toggle="tooltip" data-placement="top" title=""
+              data-original-title="Follow us on Dribbble">
+              <i class="fas fa-trash" style="color:red"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <mat-card style="background-color: rgba(38, 40, 51, 0.05); color: black;">
+      <mat-paginator style="background-color:rgba(38, 40, 51, 0.05); color: black;" [pageSizeOptions]="[3, 5, 10, 50]"
+        [pageSize]="3" showFirstLastButtons></mat-paginator>
+    </mat-card>
+  </div>
+</div>

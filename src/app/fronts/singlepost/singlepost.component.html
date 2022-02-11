@@ -1,0 +1,338 @@
+<main class="pt-50" style="background-color: #f7f8f9;">
+  <div class="">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8">
+          <div class="single-content2">
+            <div class="entry-header entry-header-style-1 mb-50">
+              <h1 class="entry-title mb-30 font-weight-900">
+                {{blogDetails.title}}
+              </h1>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="
+                        entry-meta
+                        align-items-center
+                        meta-2
+                        font-small
+                        color-muted
+                      ">
+                    <p class="mb-5">
+                      <a class="author-avatar" href="#"><img class="img-circle"
+                          src="{{getCommenterPic(blogDetails.reporter.email)}}" alt="" /></a>By
+                      <!-- -->
+                      <a href="/author/{{blogDetails.reporter.name}}"><span class="author-name font-weight-bold">{{blogDetails.reporter.name}}</span></a>
+                    </p>
+                    <span class="mr-10">
+                      {{blogDetails.createdAt | date}}
+                    </span><span class="has-dot">
+                      {{NumCeil(blogDetails.body.length / 200)}} mins read
+                    </span>
+                  </div>
+                </div>
+                <div class="col-md-6 text-right d-none d-md-inline">
+                  <ul class="
+                        header-social-network
+                        d-inline-block
+                        list-inline
+                        mr-15
+                      ">
+                    <li class="list-inline-item text-muted">
+                      <span>Share this:
+                        <!-- -->
+                      </span>
+                    </li>
+                    <li class="list-inline-item">
+                      <a class="social-icon fb text-xs-center" target="_blank"
+                        href="https://www.facebook.com/sharer.php?u=http://localhost:4200/post/{{blogDetails.slug}}">
+                        <fa-icon [icon]="facebook"></fa-icon>
+                      </a>
+                    </li>
+                    <li class="list-inline-item">
+                      <a class="social-icon tw text-xs-center" target="_blank"
+                        href="https://twitter.com/intent/tweet?url=http://localhost:4200/post/{{blogDetails.slug}}">
+                        <fa-icon [icon]="twitter"></fa-icon>
+                      </a>
+                    </li>
+                    <li class="list-inline-item">
+                      <a class="social-icon pt text-xs-center" target="_blank" href="#">
+                        <fa-icon [icon]="pin"></fa-icon>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <figure class="image mb-30 m-auto text-center border-radius-10">
+              <img class="border-radius-10" src="http://localhost:20245/Images/{{blogDetails.imageName}}"
+                alt="{{blogDetails.imageName}}" />
+            </figure>
+            <article class="entry-wraper mb-50">
+
+              <div class="excerpt mb-30" [innerHTML]="blogDetails.body">
+
+              </div>
+
+              <div class="entry-bottom mt-50 mb-30 wow fadeIn animated">
+                <div class="tags">
+                  <span>Tags: </span>
+                  <a *ngFor="let t of tags" href="/tags/{{t}}">{{t}}</a>
+                </div>
+              </div>
+              <div class="single-social-share clearfix wow fadeIn animated">
+                <div class="
+                      entry-meta
+                      meta-1
+                      font-small
+                      color-grey
+                      float-left
+                      mt-10
+                    ">
+                  <span class="hit-count mr-15">
+                    <fa-icon [icon]="com" class="mr-5"></fa-icon>{{lastComments.length}}
+                    comment<span *ngIf="lastComments.length > 1">s</span>
+                  </span><span class="hit-count mr-15">
+                    <fa-icon [icon]="eye" class="mr-5"></fa-icon>{{blogDetails.views + 1}} view<span
+                      *ngIf="blogDetails.views > 1">s</span>
+                  </span>
+                </div>
+                <ul class="
+                      header-social-network
+                      d-inline-block
+                      list-inline
+                      float-md-right
+                      mt-md-0 mt-4
+                    ">
+                  <li class="list-inline-item text-muted">
+                    <span>Share this:
+                      <!-- -->
+                    </span>
+                  </li>
+                  <li class="list-inline-item">
+                    <a class="social-icon fb text-xs-center" target="_blank"
+                      href="https://www.facebook.com/sharer.php?u=http://localhost:4200/post/{{blogDetails.slug}}">
+                      <fa-icon [icon]="facebook"></fa-icon>
+                    </a>
+                  </li>
+                  <li class="list-inline-item">
+                    <a class="social-icon tw text-xs-center" target="_blank"
+                      href="https://twitter.com/intent/tweet?url=http://localhost:4200/post/{{blogDetails.slug}}">
+                      <fa-icon [icon]="twitter"></fa-icon>
+                    </a>
+                  </li>
+                  <li class="list-inline-item">
+                    <a class="social-icon pt text-xs-center" target="_blank" href="#">
+                      <fa-icon [icon]="pin"></fa-icon>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div class="
+                    author-bio
+                    p-30
+                    mt-50
+                    border-radius-10
+                    bg-white
+                    wow
+                    fadeIn
+                    animated
+                  ">
+                <div class="author-image mb-30">
+                  <a href="/author/{{blogDetails.reporter.name}}"><img src="{{getCommenterPic(blogDetails.reporter.email)}}" alt="" class="avatar" /></a>
+                </div>
+                <div class="author-info">
+                  <h4 class="font-weight-bold mb-20">
+                    <span class="vcard author"><span class="fn"><a
+                          href="/author/{{blogDetails.reporter.name}}">{{blogDetails.reporter.name}}</a></span></span>
+                  </h4>
+                  <h5 class="text-muted">About author</h5>
+                  <div class="author-description text-muted">
+                    {{blogDetails.reporter.aboutReporter}}
+                  </div>
+                  <a class="author-bio-link mb-md-0 mb-3" href="/author/{{blogDetails.reporter.name}}">View all posts</a>
+                  <div class="author-social">
+                    <ul class="author-social-icons">
+                      <li class="author-social-link-facebook">
+                        <a target="_blank" href="index.html#"><i class="ti-facebook"></i></a>
+                      </li>
+                      <li class="author-social-link-twitter">
+                        <a target="_blank" href="index.html#"><i class="ti-twitter-alt"></i></a>
+                      </li>
+                      <li class="author-social-link-pinterest">
+                        <a target="_blank" href="index.html#"><i class="ti-pinterest"></i></a>
+                      </li>
+                      <li class="author-social-link-instagram">
+                        <a target="_blank" href="index.html#"><i class="ti-instagram"></i></a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div class="comments-area">
+                <div class="widget-header-2 position-relative mb-30">
+                  <h5 class="mt-5 mb-30">Comment<span *ngIf="lastComments.length > 1">s</span> ({{lastComments.length}})</h5>
+                </div>
+                <div class="comment-list wow fadeIn animated" *ngFor="let c of lastComments">
+                  <div *ngIf="lastComments.length > 0" class="single-comment justify-content-between d-flex">
+                    <div class="user justify-content-between d-flex">
+                      <div class="thumb">
+                        <img src="{{getCommenterPic(c.email)}}" alt="" />
+                      </div>
+                      <div class="desc">
+                        <p class="comment">
+                          {{c.comment}}
+                        </p>
+                        <div class="d-flex justify-content-between">
+                          <div class="d-flex align-items-center">
+                            <h5>{{c.author}}</h5>
+                            <p class="date">{{c.CommentDate | date}}
+                              <!-- -->
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <mat-card *ngIf="comments.length < 1" class="example-card" style="margin-bottom: 15px;background: #05a0c82b; color: #05a0c8; font-weight: 500; font-size: 20px;">
+                  <mat-card-header>
+                    <mat-icon style="width: 20px; height: 20px; margin-right: 12px;    margin-left: -32px;">warning</mat-icon> No comment found!
+                  </mat-card-header>
+                </mat-card>
+              </div>
+              <div class="comment-form wow fadeIn animated">
+                <div class="widget-header-2 position-relative mb-30">
+                  <h5 class="mt-5 mb-30">Leave a Reply</h5>
+                </div>
+                <form class="form-contact comment_form" [formGroup]="addCommentForm" (submit)="createComment()" novalidate>
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <input type="text" class="form-control" name="name" id="name" placeholder="Your Name" formControlName="Author" />
+                        <input style="display: none;" matInput placeholder="date" formControlName="CommentDate">
+                        <mat-error
+                            *ngIf="!addCommentForm.controls.Author?.valid && (addCommentForm.controls.Author?.dirty
+                            ||addCommentForm.controls.Author?.touched)">
+                            Your name is not valid
+                        </mat-error>
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <input type="email" class="form-control" name="email" id="email" placeholder="Email" formControlName="Email"  />
+                        <mat-error
+                            *ngIf="!addCommentForm.controls.Email?.valid && (addCommentForm.controls.Email?.dirty
+                            ||addCommentForm.controls.Email?.touched)">
+                            Your email address is not valid
+                        </mat-error>
+                      </div>
+                    </div>
+                    <div class="col-12">
+                      <div class="form-group">
+                        <textarea class="form-control w-100" name="comment" id="comment" cols="30" rows="9"
+                          placeholder="Write Comment"formControlName="CommentContent"></textarea>
+                          <mat-error
+                            *ngIf="!addCommentForm.controls.Comment?.valid && (addCommentForm.controls.Comment?.dirty
+                            ||addCommentForm.controls.Comment?.touched)">
+                            Please keep your comment between 20 to 200 characters.
+                        </mat-error>
+                      </div>
+                    </div>
+
+                  </div>
+                  <div class="form-group">
+                    <button type="submit" style="display: flex; align-items: center;" class="btn button button-contactForm"[disabled]="!addCommentForm.valid">
+                      Post Comment <mat-spinner *ngIf="saving" color="#fff" [diameter]="25"></mat-spinner>
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </article>
+          </div>
+        </div>
+        <div class="col-lg-4 primary-sidebar sticky-sidebar">
+          <div class="widget-area">
+            <div class="
+                  sidebar-widget
+                  widget-latest-posts
+                  mb-50
+                  wow
+                  fadeInUp
+                  animated
+                ">
+              <div class="widget-header-2 position-relative mb-30">
+                <h5 class="mt-5 mb-30">Most popular</h5>
+              </div>
+              <div class="post-block-list post-module-1">
+                <ul class="list-post">
+
+                  <li class="mb-10 wow fadeInUp animated" *ngFor="let pb of listPopularBlogs.slice(0, 5)">
+                    <div class=" d-flex bg-white has-border p-15 hover-up transition-normal border-radius-5 ">
+                      <div class="post-content media-body">
+                        <h6 class=" post-title mb-15 text-limit-2-row font-medium ">
+                          <a href="/post/{{pb.slug}}">{{pb.title}}</a>
+                        </h6>
+                        <div class="
+                              entry-meta
+                              meta-1
+                              float-left
+                              font-x-small
+                              text-uppercase
+                            ">
+                          <span class="post-on">{{pb.createdAt | date}}</span><span class="post-by has-dot">{{pb.views + 1}} views</span>
+                        </div>
+                      </div>
+                      <div class="
+                            post-thumb post-thumb-80
+                            d-flex
+                            ml-15
+                            border-radius-5
+                            img-hover-scale
+                            overflow-hidden
+                          ">
+                        <a class="color-white" href="/post/{{pb.slug}}"><img src="http://localhost:20245/Images/{{pb.imageName}}" alt="" /></a>
+                      </div>
+                    </div>
+                  </li>
+
+                </ul>
+              </div>
+            </div>
+            <div class="
+                  sidebar-widget
+                  widget-latest-posts
+                  mb-50
+                  wow
+                  fadeInUp
+                  animated
+                ">
+              <div class="widget-header-2 position-relative mb-30">
+                <h5 class="mt-5 mb-30">Latest comments</h5>
+              </div>
+              <div class="post-block-list post-module-2">
+                <ul class="list-post">
+                  <li class="mb-10 wow fadeInUp animated" *ngFor="let c of lastComments.slice(0, 5)">
+                    <div class="d-flex bg-white has-border p-15 hover-up transition-normal border-radius-5">
+                      <div
+                        class="post-thumb post-thumb-64 d-flex mr-15 border-radius-5 img-hover-scale overflow-hidden">
+                        <a class="color-white" href="/post/{{c.news.slug}}"><img src="https://picsum.photos/200/300"
+                            alt="" /></a></div>
+
+                      <div class="post-content media-body">
+                        <p class="mb-10"><a href="/post/{{c.news.slug}}"><strong>{{c.reporter}}</strong></a><span
+                            class="ml-15 font-small text-muted has-dot">{{c.CommentDate | date}}</span></p>
+                        <p class="text-muted font-small">{{c.CommentContent.substring(0,55)}}...</p>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

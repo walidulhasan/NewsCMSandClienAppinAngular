@@ -1,0 +1,250 @@
+<section class="w-97" *ngIf="authorDetails?.role == 'Admin'">
+  <mat-card class="example-card w-60 mt-10 fl ml-4p">
+    <mat-card-header>
+      <mat-card-title class="uppercase">List all Staff</mat-card-title>
+    </mat-card-header>
+
+    <mat-form-field>
+      <input aria-label="Input group" class="form-control" (keyup)="applyFilter($event)" matInput placeholder="Filter"
+        autocomplete="off">
+    </mat-form-field>
+    <mat-card-content>
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+        <!-- Id Column -->
+        <ng-container matColumnDef="reporterId">
+          <th mat-header-cell *matHeaderCellDef> ID </th>
+          <td mat-cell *matCellDef="let element" style="width: 10%;"> {{element.reporterId}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="Name">
+          <th mat-header-cell *matHeaderCellDef> Name </th>
+          <td mat-cell *matCellDef="let element" style="width: 20%;"> {{element.name}} </td>
+        </ng-container>
+
+        <!-- Email Column -->
+        <ng-container matColumnDef="Email">
+          <th mat-header-cell *matHeaderCellDef> Email </th>
+          <td mat-cell *matCellDef="let element" [innerHTML]="element.email"> ... </td>
+        </ng-container>
+
+        <!-- Image Column -->
+        <ng-container matColumnDef="Image">
+          <th mat-header-cell *matHeaderCellDef> Image </th>
+          <td mat-cell *matCellDef="let element" style="width: 12%;"> <img class="img"
+              src="{{getCommenterPic(element.email)}}" alt="{{element.name}}"> </td>
+        </ng-container>
+
+        <!-- Action Column -->
+        <ng-container matColumnDef="Action">
+          <th mat-header-cell *matHeaderCellDef> Action </th>
+          <td mat-cell *matCellDef="let element" style="width: 18%;">
+            <a (click)="editAuthor(element.authorId)">
+              <button mat-fab color="primary" aria-label="delete icon" type="button">
+                <mat-icon>edit</mat-icon>
+              </button>
+            </a>
+            <a href="/author/{{element.name}}" target="_blank">
+              <button mat-fab color="accent" aria-label=" delete icon" type="button">
+                <mat-icon>remove_red_eye</mat-icon>
+              </button>
+            </a>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+      </table>
+      <mat-card>
+        <mat-paginator [pageSizeOptions]="[3, 5, 10, 50]" [pageSize]="3" showFirstLastButtons></mat-paginator>
+      </mat-card>
+    </mat-card-content>
+  </mat-card>
+
+
+
+
+
+  <form [formGroup]="addAuthorForm" (submit)="createAuthor()" novalidate enctype="multipart/form-data">
+
+    <mat-card class="example-card w-30 mt-10 fl">
+      <mat-card-header>
+        <mat-card-title class="uppercase">Add new Staff</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-form-field appearance="outline" class="w-97" *ngIf="showId" aria-disabled="true" disabled
+          style="cursor: not-allowed;">
+          <mat-label style="cursor: not-allowed;">Id</mat-label>
+          <input style="cursor: not-allowed;" matInput formControlName="reporterId" readonly>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="w-97">
+          <mat-label>Name</mat-label>
+          <input matInput placeholder="Enter author name" formControlName="Name">
+          <mat-error *ngIf="!addAuthorForm.controls.Name?.valid && (addAuthorForm.controls.Name?.dirty
+            ||addAuthorForm.controls.Name?.touched)">
+            Author name is not valid
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="w-97">
+          <mat-label>Father Name</mat-label>
+          <input matInput placeholder="Enter author name" formControlName="reporterFatherName">
+          <mat-error *ngIf="!addAuthorForm.controls.reporterFatherName?.valid && (addAuthorForm.controls.reporterFatherName?.dirty
+            ||addAuthorForm.controls.reporterFatherName?.touched)">
+            Reporter Father name is not valid
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="w-97">
+          <mat-label>Mother Name</mat-label>
+          <input matInput placeholder="Enter author name" formControlName="reporterMotherName">
+          <mat-error *ngIf="!addAuthorForm.controls.reporterMotherName?.valid && (addAuthorForm.controls.reporterMotherName?.dirty
+            ||addAuthorForm.controls.reporterMotherName?.touched)">
+            Reporter Mother name is not valid
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="w-97">
+          <mat-label>About</mat-label>
+          <textarea matInput placeholder="Enter author about" formControlName="aboutReporter"></textarea>
+          <mat-error *ngIf="!addAuthorForm.controls.aboutReporter?.valid && (addAuthorForm.controls.aboutReporter?.dirty
+            ||addAuthorForm.controls.aboutReporter?.touched)">
+            aboutReporter is not valid
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="w-97">
+          <mat-label>Address</mat-label>
+          <input matInput placeholder="Enter Your Address" formControlName="reporterPresentAddress">
+          <mat-error *ngIf="!addAuthorForm.controls.reporterPresentAddress?.valid && (addAuthorForm.controls.reporterPresentAddress?.dirty
+            ||addAuthorForm.controls.reporterPresentAddress?.touched)">
+            Author name is not valid
+          </mat-error>
+        </mat-form-field>
+
+
+        <mat-form-field appearance="outline" class="w-97">
+          <mat-label>Date of Birth</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="Dob">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+          <mat-error *ngIf="!addAuthorForm.controls.Dob?.valid && (addAuthorForm.controls.Dob?.dirty
+            ||addAuthorForm.controls.Dob?.touched)">
+            Please enter a valid date of birth
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Choose an Gender</mat-label>
+          <mat-select formControlName="genderId">
+            <mat-option *ngFor="let c of genderList" [value]="c.genderId">{{c.genderName}}</mat-option>
+          </mat-select>
+          <mat-error *ngIf="!addAuthorForm.controls.genderId?.valid && (addAuthorForm.controls.genderId?.dirty
+              ||addAuthorForm.controls.genderId?.touched)">
+            Please select user role
+          </mat-error>
+        </mat-form-field>
+
+
+        <mat-form-field appearance="outline">
+          <mat-label>Choose a Role</mat-label>
+          <mat-select formControlName="Role">
+            <mat-option >--Select Please--</mat-option>
+            <mat-option value="Admin">Admin</mat-option>
+            <mat-option value="Author">Reporter</mat-option>
+            <mat-option value="Author">Editor</mat-option>
+            <mat-option value="Author">Accounted</mat-option>
+          </mat-select>
+          <mat-error *ngIf="!addAuthorForm.controls.Role?.valid && (addAuthorForm.controls.Role?.dirty
+              ||addAuthorForm.controls.Role?.touched)">
+            Please select user role
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Choose an Country</mat-label>
+          <mat-select formControlName="countryId">
+            <mat-option *ngFor="let c of countryList" [value]="c.countryId">{{c.countryName}}</mat-option>
+          </mat-select>
+          <mat-error *ngIf="!addAuthorForm.controls.countryId?.valid && (addAuthorForm.controls.countryId?.dirty
+              ||addAuthorForm.controls.countryId?.touched)">
+            Please select user role
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Choose an Designation</mat-label>
+          <mat-select formControlName="designationId">
+            <mat-option *ngFor="let c of designationList" [value]="c.designationId">{{c.designationName}}</mat-option>
+          </mat-select>
+          <mat-error *ngIf="!addAuthorForm.controls.designationId?.valid && (addAuthorForm.controls.designationId?.dirty
+              ||addAuthorForm.controls.designationId?.touched)">
+            Please select user role
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Choose an ComputerIP</mat-label>
+          <mat-select formControlName="computerId">
+            <mat-option *ngFor="let c of computerList" [value]="c.computerId">{{c.computerIp}}</mat-option>
+          </mat-select>
+          <mat-error *ngIf="!addAuthorForm.controls.computerId?.valid && (addAuthorForm.controls.computerId?.dirty
+              ||addAuthorForm.controls.computerId?.touched)">
+            Please select user role
+          </mat-error>
+        </mat-form-field>
+
+
+
+        <mat-form-field appearance="outline" class="w-97">
+          <mat-label>Appointed Date</mat-label>
+          <input matInput [matDatepicker]="pickerr" formControlName="reporterAppointedDate">
+          <mat-datepicker-toggle matSuffix [for]="pickerr"></mat-datepicker-toggle>
+          <mat-datepicker #pickerr></mat-datepicker>
+          <mat-error *ngIf="!addAuthorForm.controls.reporterAppointedDate?.valid && (addAuthorForm.controls.reporterAppointedDate?.dirty
+            ||addAuthorForm.controls.reporterAppointedDate?.touched)">
+            Please enter a valid date of birth
+          </mat-error>
+        </mat-form-field>
+
+        <mat-card style="margin-bottom: 12px;">
+          <mat-card-content>
+            <mat-slide-toggle formControlName="permanentTemporary"> Permanent</mat-slide-toggle>
+          </mat-card-content>
+        </mat-card>
+
+        <mat-form-field appearance="outline" class="w-97">
+          <mat-label>Email</mat-label>
+          <input autocomplete="off" matInput placeholder="Enter author email" formControlName="Email">
+          <mat-error *ngIf="!addAuthorForm.controls.Email?.valid && (addAuthorForm.controls.Email?.dirty
+            ||addAuthorForm.controls.Email?.touched)">
+            Post email is not valid
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="w-97">
+          <mat-label>Password</mat-label>
+          <input matInput placeholder="Enter login password" formControlName="password" type="password">
+          <mat-error *ngIf="!addAuthorForm.controls.password?.valid && (addAuthorForm.controls.password?.dirty
+            ||addAuthorForm.controls.password?.touched)">
+            Post password is not valid
+          </mat-error>
+        </mat-form-field>
+
+
+        <button type="submit" mat-raised-button color="accent" [disabled]="!addAuthorForm.valid">
+          <mat-icon style="margin-top: 0;">save</mat-icon> &nbsp; <span *ngIf="showId">Update</span><span
+            *ngIf="showId == false">Add Author</span>
+          <mat-spinner color="#fff" *ngIf="saving" [diameter]="25"></mat-spinner>
+        </button>
+
+        <button style="margin-left: 10px;" type="button" (click)="clearForm()" *ngIf="showClearBtn" mat-raised-button
+          color="basic">
+          <mat-icon style="margin-top: 0;">clear_all</mat-icon> &nbsp; Clear
+        </button>
+
+      </mat-card-content>
+
+    </mat-card>
+  </form>
+
+</section>

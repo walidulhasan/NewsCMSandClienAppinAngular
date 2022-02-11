@@ -1,0 +1,26 @@
+
+<mat-toolbar style="background-color: #dedede;">
+  <img src="../../../assets/assets/images/BDnews.svg">
+  <span class="example-spacer"></span>
+  <a href="/" target="_blank" class="btn"><i class="fab fa-internet-explorer"></i> Visit News</a>
+  <span class="icon icon-shape icon-lg bg-soft shadow-soft border border-light rounded-circle mb-3 mt-3">
+    <img src="../../../assets/assets/images/img.png" width="35"
+
+    style="border-radius: 60%; width: 40px; margin-top: 5px;margin-left: 4px;">
+  </span> &nbsp;
+
+  <!--menu-->
+  <button style="cursor: pointer;" mat-icon-button [matMenuTriggerFor]="menu"
+    aria-label="Example icon-button with a menu">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>
+      <span style="font-size: 16px; font-weight: bold;">{{authorDetails?.name}}</span>
+    </button>
+    <button mat-menu-item (click)="logout()">
+      <mat-icon>logout</mat-icon>
+      <span>Logout</span>
+    </button>
+  </mat-menu>
+</mat-toolbar>

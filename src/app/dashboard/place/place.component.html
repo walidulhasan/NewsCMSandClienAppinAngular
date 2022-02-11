@@ -1,0 +1,107 @@
+<section class="w-97" *ngIf="authorDetails?.role == 'Admin'">
+  <form [formGroup]="addCatForm" (submit)="createCat()" novalidate enctype="multipart/form-data">
+    <mat-card class="example-card w-60 mt-10 fl ml-4p" style="margin-left: auto;margin-right: 10px;">
+      <mat-card-header>
+        <mat-card-title class="uppercase">List all <Sub></Sub>Staff Posting</mat-card-title>
+      </mat-card-header>
+      <mat-form-field>
+        <input aria-label="Input group" class="form-control" (keyup)="applyFilter($event)" matInput placeholder="Filter"
+          autocomplete="off">
+      </mat-form-field>
+      <mat-card-content>
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+          <!-- Id Column -->
+          <ng-container matColumnDef="subCategoryId">
+            <th mat-header-cell *matHeaderCellDef> ID </th>
+            <td mat-cell *matCellDef="let element" style="width: 10%;"> {{element.placeId}} </td>
+          </ng-container>
+
+          <!-- Name Column -->
+          <ng-container matColumnDef="SubCategoryName">
+            <th mat-header-cell *matHeaderCellDef>Staff Posting Place </th>
+            <td mat-cell *matCellDef="let element" style="width: 20%;"> {{element.placeName}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="CategoryName">
+            <th mat-header-cell *matHeaderCellDef>Staff Name </th>
+            <td mat-cell *matCellDef="let element" style="width: 20%;"> {{element.reporter.name}} </td>
+          </ng-container>
+
+          <!-- Action Column -->
+          <ng-container matColumnDef="Action">
+            <th mat-header-cell *matHeaderCellDef> Action </th>
+            <td mat-cell *matCellDef="let element" style="width: 18%;">
+              <a (click)="editCat(element.placeId)">
+                <button mat-fab color="primary" aria-label="delete icon" type="button">
+                  <mat-icon>edit</mat-icon>
+                </button>
+              </a>
+
+              <a (click)="DeletePost(element.placeId)">
+                <button mat-fab color="warn" aria-label="delete icon" type="button">
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </a>
+
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+        </table>
+        <mat-card>
+          <mat-paginator [pageSizeOptions]="[3, 5, 10, 50]" [pageSize]="3" showFirstLastButtons></mat-paginator>
+        </mat-card>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="example-card w-30 mt-10 fl">
+      <mat-card-header>
+        <mat-card-title class="uppercase">Add new Staff Posting</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-form-field appearance="outline" class="w-97" *ngIf="showId" aria-disabled="true" disabled
+          style="cursor: not-allowed;">
+          <mat-label style="cursor: not-allowed;">Id</mat-label>
+          <input style="cursor: not-allowed;" matInput formControlName="subCategoryId" readonly>
+        </mat-form-field>
+        <mat-label>Posting Place</mat-label>
+        <mat-form-field appearance="outline" class="w-97">
+          <mat-label>Posting Place</mat-label>
+          <input matInput placeholder="Enter Staff Posting name" formControlName="SubCategoryName">
+          <mat-error *ngIf="!addCatForm.controls.Name?.valid && (addCatForm.controls.Name?.dirty
+            ||addCatForm.controls.Name?.touched)">
+            Posting Place is not valid
+          </mat-error>
+        </mat-form-field>
+
+        <mat-label>Staff</mat-label>
+        <mat-form-field appearance="outline">
+          <mat-label>Choose an option</mat-label>
+          <mat-select formControlName="CategoryName">
+            <mat-option *ngFor="let c of listCategories" [value]="c.reporterId">{{c.name}}</mat-option>
+          </mat-select>
+          <mat-error *ngIf="!addCatForm.controls.subCategoryId?.valid && (addCatForm.controls.subCategoryId?.dirty
+                        ||addCatForm.controls.subCategoryId?.touched)">
+          Please select Category
+        </mat-error>
+        </mat-form-field>
+
+        <button type="submit" mat-raised-button color="accent" [disabled]="!addCatForm.valid">
+          <mat-icon style="margin-top: 0;">save</mat-icon> &nbsp; <span *ngIf="showId">Update</span><span
+            *ngIf="showId == false">Publish</span>
+          <mat-spinner color="#fff" *ngIf="saving" [diameter]="25"></mat-spinner>
+        </button>
+        <button style="margin-left: 10px;" type="button" (click)="clearForm()" *ngIf="showClearBtn" mat-raised-button
+          color="basic">
+          <mat-icon style="margin-top: 0;">clear_all</mat-icon> &nbsp; Clear
+        </button>
+      </mat-card-content>
+
+    </mat-card>
+
+  </form>
+</section>
+

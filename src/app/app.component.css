@@ -1,0 +1,12 @@
+.example-container {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+  }
+  .sidebarContainer{
+    width: 250px;
+    background-color: #f8f8f8c4;
+  }
+  .mat-drawer-container {
+    height: 100%;
+  }
